@@ -1,4 +1,4 @@
 (function() {
-	var app = require('/ui/bootstrap');
+	var app = require('/bootstrap');
 	app.launch();
 })();
