@@ -1,21 +1,20 @@
 var app = require('/namespace');
 var start = require('/modules/start');
+var library = require('/modules/library');
 
 exports.launch = function() {
 	//define small, medium, large screens
-	//Ti.API.info('start: ' + JSON.stringify(start));
-	var win = start.Window;
-	win.open();
-	/** /
+	start.Window.open();
+	
+	app.subscribe('library:open', function(){
+		library.Window.open();
+	});
+	app.subscribe('library:close', function(){
+		library.Window.close();
+	});
 	setTimeout(function(){
-		win.refresh();	
+		start.Window.refresh();	
 	},
 	3000
 	);
-	/**/
-	/** /
-	// later on
-	if something happens
-		start.Views.rss.refresh();
-	/**/
 };

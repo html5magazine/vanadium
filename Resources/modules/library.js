@@ -5,19 +5,18 @@ var Teaser = require('/views/Teaser');
 var Slider = require('/views/Slider');
 var Label = require('/lib/ui/Label');
 
-var Start = app.module();
-Start.Window = new StartWindow({
-	backgroundColor: 'white',
-	exitOnClose: true
+var Library = app.module();
+Library.Window = new StartWindow({
+	backgroundColor: 'red'
 });
-Start.Views.Teaser = new Teaser({
+Library.Views.Teaser = new Teaser({
 	image: 'image1.png',
-	height: '50%'
+	height: '30%'
 });
-Start.Views.Slider = new Slider({
+Library.Views.Slider = new Slider({
 	backgroundColor: 'black',
-	height: '50%',
-	top: '50%'
+	height: '70%',
+	top: '30%'
 });
 var label = Label.extend({
 	initialize: function(){
@@ -26,15 +25,15 @@ var label = Label.extend({
 		this.view.addEventListener('click', this.click);
 	},
 	click: function(){
-		app.publish('library:open');
+		app.publish('library:close');
 	}
 });
 var label2 = new label({
-	text: 'open library'
+	text: 'close library'
 });
 
-Start.Window.add('teaser', Start.Views.Teaser);
-Start.Window.add('slider', Start.Views.Slider);
-Start.Window.add('label2', label2);
+Library.Window.add('teaser', Library.Views.Teaser);
+Library.Window.add('slider', Library.Views.Slider);
+Library.Window.add('label2', label2);
 	
-module.exports = Start;
+module.exports = Library;

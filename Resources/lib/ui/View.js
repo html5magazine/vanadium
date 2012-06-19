@@ -1,11 +1,13 @@
 var _ = require('/lib/underscore');
 var BaseView = require('/lib/ui/BaseView');
 var viewOptions = {
-	'text': 'label1'
+	backgroundColor: 'red',
+	top: 0,
+	left: 0
 };
 var Component = function(options){
-	this.view = Ti.UI.createLabel(_.extend(viewOptions, options));
-	Ti.API.info('label constructor called 1: ' + JSON.stringify(this.view));
+	this.view = Ti.UI.createView(_.extend(viewOptions, options));
+	Ti.API.info('view constructor called 1: ' + JSON.stringify(this.view));
 	BaseView.apply(this, [options]);
 }
 _.extend(Component.prototype, BaseView.prototype, {
