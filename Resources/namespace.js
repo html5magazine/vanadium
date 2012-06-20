@@ -1,5 +1,7 @@
 var _ = require('/lib/underscore');
 var pubSub = require('/lib/pubsub');
+var BackboneLocalStorage = require('/lib/backbone.localstorage');
+
 function namespace (){
 	return {
 		module: function(additionalProps) {
